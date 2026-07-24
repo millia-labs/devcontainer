@@ -1,0 +1,15 @@
+{
+  "both_features": {
+    "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+    "features": {
+      "act": {
+        "version": "latest",
+        "defaultImage": "catthehacker/ubuntu:act-22.04"
+      },
+      "uv": {
+        "version": "latest",
+        "pythonVersion": "3.13"
+      }
+    }
+  }
+}

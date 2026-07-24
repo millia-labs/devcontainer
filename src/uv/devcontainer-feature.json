@@ -1,0 +1,22 @@
+{
+  "id": "uv",
+  "version": "1.0.0",
+  "name": "uv (Astral Python toolchain)",
+  "documentationURL": "https://github.com/millia-labs/devcontainer/tree/main/src/uv",
+  "description": "Installs the uv/uvx binaries system-wide and (optionally) a managed CPython into a shared, world-readable location so every user in the container gets the same interpreter.",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "latest",
+      "description": "uv version to install. 'latest' uses the newest release, otherwise a bare version like '0.9.2'."
+    },
+    "pythonVersion": {
+      "type": "string",
+      "default": "3.13",
+      "description": "CPython version to pre-install via `uv python install`. Set to '-' to skip installing a managed Python."
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}

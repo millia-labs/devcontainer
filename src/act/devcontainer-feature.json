@@ -1,0 +1,30 @@
+{
+  "id": "act",
+  "version": "1.0.0",
+  "name": "act (GitHub Actions runner)",
+  "documentationURL": "https://github.com/millia-labs/devcontainer/tree/main/src/act",
+  "description": "Installs nektos/act so you can run GitHub Actions workflows locally. Pre-seeds ~/.actrc with a default runner image so the first run never blocks on the interactive image-size prompt.",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "latest",
+      "description": "act version to install. 'latest' resolves the newest GitHub release, otherwise pass a bare semver like '0.2.82'."
+    },
+    "defaultImage": {
+      "type": "string",
+      "default": "catthehacker/ubuntu:act-22.04",
+      "proposals": [
+        "catthehacker/ubuntu:act-22.04",
+        "catthehacker/ubuntu:act-latest",
+        "node:20-bookworm-slim",
+        "-"
+      ],
+      "description": "Image mapped to ubuntu-latest in ~/.actrc (the 'medium' preset). Set to '-' to skip writing .actrc."
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/docker-in-docker",
+    "ghcr.io/devcontainers/features/docker-outside-of-docker"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "node",
+  "version": "1.0.0",
+  "name": "Node.js + pnpm",
+  "documentationURL": "https://github.com/millia-labs/devcontainer/tree/main/src/node",
+  "description": "Installs Node.js from NodeSource and pnpm as a system-wide npm global (no per-user corepack state).",
+  "options": {
+    "nodeMajor": {
+      "type": "string",
+      "default": "20",
+      "description": "Node.js major version to install from NodeSource, e.g. '20'."
+    },
+    "pnpmVersion": {
+      "type": "string",
+      "default": "8",
+      "description": "pnpm version to install globally via npm. Set to '-' to skip installing pnpm."
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}

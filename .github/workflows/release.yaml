@@ -1,0 +1,26 @@
+name: "Release Features"
+
+# Publishes each feature as an OCI artifact to GHCR:
+#   ghcr.io/millia-labs/devcontainer/<feature>
+# Consumers (millia-codespace) reference these by that address.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Publish features to GHCR"
+        uses: devcontainers/action@v1
+        with:
+          publish-features: "true"
+          base-path-to-features: "./src"
+          generate-docs: "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

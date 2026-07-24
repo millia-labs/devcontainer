@@ -1,0 +1,42 @@
+{
+  "id": "flutter",
+  "version": "1.0.1",
+  "name": "Flutter SDK",
+  "documentationURL": "https://github.com/millia-labs/devcontainer/tree/main/src/flutter",
+  "description": "Installs the Flutter SDK (with its bundled Dart) from the official stable release archive into /opt/flutter, owned by the remote user so the first-run engine.stamp write succeeds. Optionally installs an OpenJDK for Android/Gradle builds and runs `flutter precache`.",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "3.41.4",
+      "description": "Flutter release to install, e.g. '3.41.4'. 'latest' resolves the newest release on the chosen channel."
+    },
+    "channel": {
+      "type": "string",
+      "default": "stable",
+      "proposals": ["stable", "beta"],
+      "description": "Release channel to pull the archive from."
+    },
+    "installJdk": {
+      "type": "boolean",
+      "default": true,
+      "description": "Also install a headless OpenJDK for Android/Gradle builds."
+    },
+    "jdkVersion": {
+      "type": "string",
+      "default": "17",
+      "description": "OpenJDK major version to install when installJdk is true."
+    },
+    "precache": {
+      "type": "boolean",
+      "default": true,
+      "description": "Run `flutter precache` after install to warm the artifact cache."
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ],
+  "containerEnv": {
+    "FLUTTER_HOME": "/opt/flutter",
+    "PATH": "/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:${PATH}"
+  }
+}
